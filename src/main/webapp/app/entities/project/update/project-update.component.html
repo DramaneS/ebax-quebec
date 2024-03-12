@@ -1,0 +1,245 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-project-heading" data-cy="ProjectCreateUpdateHeading" jhiTranslate="ebaxquebecApp.project.home.createOrEditLabel">
+        Créer ou éditer un Project
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.nameBuilding" for="field_nameBuilding">Name Building</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameBuilding"
+            id="field_nameBuilding"
+            data-cy="nameBuilding"
+            formControlName="nameBuilding"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.fullAddressBuilding" for="field_fullAddressBuilding"
+            >Full Address Building</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="fullAddressBuilding"
+            id="field_fullAddressBuilding"
+            data-cy="fullAddressBuilding"
+            formControlName="fullAddressBuilding"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.numberHousingUnits" for="field_numberHousingUnits"
+            >Number Housing Units</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numberHousingUnits"
+            id="field_numberHousingUnits"
+            data-cy="numberHousingUnits"
+            formControlName="numberHousingUnits"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.electricitySupplier" for="field_electricitySupplier"
+            >Electricity Supplier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="electricitySupplier"
+            id="field_electricitySupplier"
+            data-cy="electricitySupplier"
+            formControlName="electricitySupplier"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.hydroQuebecContractNumber" for="field_hydroQuebecContractNumber"
+            >Hydro Quebec Contract Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hydroQuebecContractNumber"
+            id="field_hydroQuebecContractNumber"
+            data-cy="hydroQuebecContractNumber"
+            formControlName="hydroQuebecContractNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.hydroQuebecMeterNumber" for="field_hydroQuebecMeterNumber"
+            >Hydro Quebec Meter Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hydroQuebecMeterNumber"
+            id="field_hydroQuebecMeterNumber"
+            data-cy="hydroQuebecMeterNumber"
+            formControlName="hydroQuebecMeterNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.ifSeveralMeters" for="field_ifSeveralMeters"
+            >If Several Meters</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="ifSeveralMeters"
+            id="field_ifSeveralMeters"
+            data-cy="ifSeveralMeters"
+            formControlName="ifSeveralMeters"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.specifyMeteIntended" for="field_specifyMeteIntended"
+            >Specify Mete Intended</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="specifyMeteIntended"
+            id="field_specifyMeteIntended"
+            data-cy="specifyMeteIntended"
+            formControlName="specifyMeteIntended"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.hydroQuebecAccountNumber" for="field_hydroQuebecAccountNumber"
+            >Hydro Quebec Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="hydroQuebecAccountNumber"
+            id="field_hydroQuebecAccountNumber"
+            data-cy="hydroQuebecAccountNumber"
+            formControlName="hydroQuebecAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.fileNumber" for="field_fileNumber">File Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="fileNumber"
+            id="field_fileNumber"
+            data-cy="fileNumber"
+            formControlName="fileNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.typeBuillding" for="field_typeBuillding">Type Buillding</label>
+          <input
+            type="text"
+            class="form-control"
+            name="typeBuillding"
+            id="field_typeBuillding"
+            data-cy="typeBuillding"
+            formControlName="typeBuillding"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.natureProject" for="field_natureProject">Nature Project</label>
+          <input
+            type="text"
+            class="form-control"
+            name="natureProject"
+            id="field_natureProject"
+            data-cy="natureProject"
+            formControlName="natureProject"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.startDateWork" for="field_startDateWork">Start Date Work</label>
+          <div class="d-flex">
+            <input
+              id="field_startDateWork"
+              data-cy="startDateWork"
+              type="datetime-local"
+              class="form-control"
+              name="startDateWork"
+              formControlName="startDateWork"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.endDateWork" for="field_endDateWork">End Date Work</label>
+          <div class="d-flex">
+            <input
+              id="field_endDateWork"
+              data-cy="endDateWork"
+              type="datetime-local"
+              class="form-control"
+              name="endDateWork"
+              formControlName="endDateWork"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.project.hydroQuebecRate" for="field_hydroQuebecRate"
+            >Hydro Quebec Rate</label
+          >
+          <select
+            class="form-control"
+            id="field_hydroQuebecRate"
+            data-cy="hydroQuebecRate"
+            name="hydroQuebecRate"
+            formControlName="hydroQuebecRate"
+            [compareWith]="compareHydroQuebecRate"
+          >
+            <option [ngValue]="null"></option>
+            @for (hydroQuebecRateOption of hydroQuebecRatesSharedCollection; track $index) {
+              <option [ngValue]="hydroQuebecRateOption">{{ hydroQuebecRateOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

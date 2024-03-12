@@ -1,0 +1,44 @@
+{
+  "ebaxquebecApp": {
+    "service": {
+      "home": {
+        "title": "Services",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Service",
+        "createOrEditLabel": "Créer ou éditer un Service",
+        "notFound": "Aucun Service trouvé"
+      },
+      "created": "Un nouveau Service a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Service avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Service avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Service {{ id }} ?"
+      },
+      "detail": {
+        "title": "Service"
+      },
+      "id": "ID",
+      "nameService": "Name Service",
+      "companyName": "Company Name",
+      "phone": "Phone",
+      "email": "Email",
+      "plansAllFloorsVentilationPlans": "Plans All Floors Ventilation Plans",
+      "energySimulationReport": "Energy Simulation Report",
+      "windowsTechnicalSheetAndUFactor": "Windows Technical Sheet And U Factor",
+      "completeWallSection": "Complete Wall Section",
+      "brandModelVentilationDevices": "Brand Model Ventilation Devices",
+      "brandModelVeaters": "Brand Model Veaters",
+      "brandModelHotWaterTanks": "Brand Model Hot Water Tanks",
+      "brandModelHeatPumpAirConditioningUnits": "Brand Model Heat Pump Air Conditioning Units",
+      "typeLighting": "Type Lighting",
+      "quantityEachModelAndDLCProductID": "Quantity Each Model And DLC Product ID",
+      "checksProvideTechnicalDataSheets": "Checks Provide Technical Data Sheets",
+      "brandModelPlumbingFixtures": "Brand Model Plumbing Fixtures",
+      "otherRelevantDevicesCertification": "Other Relevant Devices Certification",
+      "heatRecoveryGrayWaterSolarOther": "Heat Recovery Gray Water Solar Other",
+      "entreprise": "Entreprise",
+      "project": "Project",
+      "invoice": "Invoice"
+    }
+  }
+}

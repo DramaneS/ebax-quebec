@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240312144915"
+  },
+  "applications": "*",
+  "entityTableName": "invoice",
+  "fields": [
+    {
+      "fieldName": "nameCustumer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Invoice",
+  "relationships": [
+    {
+      "otherEntityName": "service",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "service",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

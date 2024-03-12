@@ -1,0 +1,16 @@
+{
+  "annotations": {
+    "changelogDate": "20240312145215"
+  },
+  "applications": "*",
+  "entityTableName": "hydro_quebec_rate",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "name": "HydroQuebecRate",
+  "relationships": [],
+  "searchEngine": "no"
+}

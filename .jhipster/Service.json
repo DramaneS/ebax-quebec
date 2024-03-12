@@ -1,0 +1,105 @@
+{
+  "annotations": {
+    "changelogDate": "20240312144715"
+  },
+  "applications": "*",
+  "entityTableName": "service",
+  "fields": [
+    {
+      "fieldName": "nameService",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "plansAllFloorsVentilationPlans",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "energySimulationReport",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "windowsTechnicalSheetAndUFactor",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "completeWallSection",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "brandModelVentilationDevices",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "brandModelVeaters",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "brandModelHotWaterTanks",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "brandModelHeatPumpAirConditioningUnits",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "typeLighting",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "quantityEachModelAndDLCProductID",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "checksProvideTechnicalDataSheets",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "brandModelPlumbingFixtures",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "otherRelevantDevicesCertification",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "heatRecoveryGrayWaterSolarOther",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Service",
+  "relationships": [
+    {
+      "otherEntityName": "entreprise",
+      "relationshipName": "entreprise",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "project",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "project",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "invoice",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "invoice",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

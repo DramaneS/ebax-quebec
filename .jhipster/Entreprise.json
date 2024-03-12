@@ -1,0 +1,40 @@
+{
+  "annotations": {
+    "changelogDate": "20240312145015"
+  },
+  "applications": "*",
+  "entityTableName": "entreprise",
+  "fields": [
+    {
+      "fieldName": "companyName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyNeqNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isThistaxExemptOrganization",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "resourcePerson",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Entreprise",
+  "relationships": [],
+  "searchEngine": "no"
+}

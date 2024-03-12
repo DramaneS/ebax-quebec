@@ -1,0 +1,203 @@
+<div>
+  <h2 id="page-heading" data-cy="ProjectHeading">
+    <span jhiTranslate="ebaxquebecApp.project.home.title">Projects</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.project.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-project"
+        [routerLink]="['/project/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.project.home.createLabel">Créer un nouveau Project</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (projects?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="ebaxquebecApp.project.home.notFound">Aucun Project trouvé</span>
+    </div>
+  }
+
+  @if (projects && projects.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nameBuilding">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.nameBuilding">Name Building</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fullAddressBuilding">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.fullAddressBuilding">Full Address Building</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="numberHousingUnits">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.numberHousingUnits">Number Housing Units</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="electricitySupplier">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.electricitySupplier">Electricity Supplier</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hydroQuebecContractNumber">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.hydroQuebecContractNumber">Hydro Quebec Contract Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hydroQuebecMeterNumber">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.hydroQuebecMeterNumber">Hydro Quebec Meter Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifSeveralMeters">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.ifSeveralMeters">If Several Meters</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="specifyMeteIntended">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.specifyMeteIntended">Specify Mete Intended</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hydroQuebecAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.hydroQuebecAccountNumber">Hydro Quebec Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fileNumber">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.fileNumber">File Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="typeBuillding">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.typeBuillding">Type Buillding</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="natureProject">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.natureProject">Nature Project</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="startDateWork">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.startDateWork">Start Date Work</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="endDateWork">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.endDateWork">End Date Work</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hydroQuebecRate.id">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.project.hydroQuebecRate">Hydro Quebec Rate</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (project of projects; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/project', project.id, 'view']">{{ project.id }}</a>
+              </td>
+              <td>{{ project.nameBuilding }}</td>
+              <td>{{ project.fullAddressBuilding }}</td>
+              <td>{{ project.numberHousingUnits }}</td>
+              <td>{{ project.electricitySupplier }}</td>
+              <td>{{ project.hydroQuebecContractNumber }}</td>
+              <td>{{ project.hydroQuebecMeterNumber }}</td>
+              <td>{{ project.ifSeveralMeters }}</td>
+              <td>{{ project.specifyMeteIntended }}</td>
+              <td>{{ project.hydroQuebecAccountNumber }}</td>
+              <td>{{ project.fileNumber }}</td>
+              <td>{{ project.typeBuillding }}</td>
+              <td>{{ project.natureProject }}</td>
+              <td>{{ project.startDateWork | formatMediumDatetime }}</td>
+              <td>{{ project.endDateWork | formatMediumDatetime }}</td>
+              <td>
+                @if (project.hydroQuebecRate) {
+                  <div>
+                    <a [routerLink]="['/hydro-quebec-rate', project.hydroQuebecRate.id, 'view']">{{ project.hydroQuebecRate.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/project', project.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/project', project.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(project)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

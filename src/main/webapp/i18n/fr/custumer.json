@@ -1,0 +1,28 @@
+{
+  "ebaxquebecApp": {
+    "custumer": {
+      "home": {
+        "title": "Custumers",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Custumer",
+        "createOrEditLabel": "Créer ou éditer un Custumer",
+        "notFound": "Aucun Custumer trouvé"
+      },
+      "created": "Un nouveau Custumer a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Custumer avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Custumer avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Custumer {{ id }} ?"
+      },
+      "detail": {
+        "title": "Custumer"
+      },
+      "id": "ID",
+      "nameCustumer": "Name Custumer",
+      "adress": "Adress",
+      "phone": "Phone",
+      "email": "Email",
+      "service": "Service"
+    }
+  }
+}

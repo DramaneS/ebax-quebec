@@ -1,0 +1,123 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (service) {
+      <div>
+        <h2 data-cy="serviceDetailsHeading"><span jhiTranslate="ebaxquebecApp.service.detail.title">Service</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ service.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.nameService">Name Service</span></dt>
+          <dd>
+            <span>{{ service.nameService }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.companyName">Company Name</span></dt>
+          <dd>
+            <span>{{ service.companyName }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.phone">Phone</span></dt>
+          <dd>
+            <span>{{ service.phone }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.email">Email</span></dt>
+          <dd>
+            <span>{{ service.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.plansAllFloorsVentilationPlans">Plans All Floors Ventilation Plans</span></dt>
+          <dd>
+            <span>{{ service.plansAllFloorsVentilationPlans }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.energySimulationReport">Energy Simulation Report</span></dt>
+          <dd>
+            <span>{{ service.energySimulationReport }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.windowsTechnicalSheetAndUFactor">Windows Technical Sheet And U Factor</span></dt>
+          <dd>
+            <span>{{ service.windowsTechnicalSheetAndUFactor }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.completeWallSection">Complete Wall Section</span></dt>
+          <dd>
+            <span>{{ service.completeWallSection }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.brandModelVentilationDevices">Brand Model Ventilation Devices</span></dt>
+          <dd>
+            <span>{{ service.brandModelVentilationDevices }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.brandModelVeaters">Brand Model Veaters</span></dt>
+          <dd>
+            <span>{{ service.brandModelVeaters }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.brandModelHotWaterTanks">Brand Model Hot Water Tanks</span></dt>
+          <dd>
+            <span>{{ service.brandModelHotWaterTanks }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="ebaxquebecApp.service.brandModelHeatPumpAirConditioningUnits"
+              >Brand Model Heat Pump Air Conditioning Units</span
+            >
+          </dt>
+          <dd>
+            <span>{{ service.brandModelHeatPumpAirConditioningUnits }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.typeLighting">Type Lighting</span></dt>
+          <dd>
+            <span>{{ service.typeLighting }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.quantityEachModelAndDLCProductID">Quantity Each Model And DLC Product ID</span></dt>
+          <dd>
+            <span>{{ service.quantityEachModelAndDLCProductID }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.checksProvideTechnicalDataSheets">Checks Provide Technical Data Sheets</span></dt>
+          <dd>
+            <span>{{ service.checksProvideTechnicalDataSheets }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.brandModelPlumbingFixtures">Brand Model Plumbing Fixtures</span></dt>
+          <dd>
+            <span>{{ service.brandModelPlumbingFixtures }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.otherRelevantDevicesCertification">Other Relevant Devices Certification</span></dt>
+          <dd>
+            <span>{{ service.otherRelevantDevicesCertification }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.heatRecoveryGrayWaterSolarOther">Heat Recovery Gray Water Solar Other</span></dt>
+          <dd>
+            <span>{{ service.heatRecoveryGrayWaterSolarOther }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.entreprise">Entreprise</span></dt>
+          <dd>
+            @if (service.entreprise) {
+              <div>
+                <a [routerLink]="['/entreprise', service.entreprise.id, 'view']">{{ service.entreprise.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.service.project">Project</span></dt>
+          <dd>
+            @for (project of service.projects; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/project', project.id, 'view']">{{ project.id }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/service', service.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

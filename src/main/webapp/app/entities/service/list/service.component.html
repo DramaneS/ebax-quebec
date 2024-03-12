@@ -1,0 +1,251 @@
+<div>
+  <h2 id="page-heading" data-cy="ServiceHeading">
+    <span jhiTranslate="ebaxquebecApp.service.home.title">Services</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.service.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-service"
+        [routerLink]="['/service/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.service.home.createLabel">Créer un nouveau Service</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (services?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="ebaxquebecApp.service.home.notFound">Aucun Service trouvé</span>
+    </div>
+  }
+
+  @if (services && services.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nameService">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.nameService">Name Service</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="companyName">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.companyName">Company Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phone">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.phone">Phone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="plansAllFloorsVentilationPlans">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.plansAllFloorsVentilationPlans">Plans All Floors Ventilation Plans</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="energySimulationReport">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.energySimulationReport">Energy Simulation Report</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="windowsTechnicalSheetAndUFactor">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.windowsTechnicalSheetAndUFactor">Windows Technical Sheet And U Factor</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="completeWallSection">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.completeWallSection">Complete Wall Section</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="brandModelVentilationDevices">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.brandModelVentilationDevices">Brand Model Ventilation Devices</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="brandModelVeaters">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.brandModelVeaters">Brand Model Veaters</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="brandModelHotWaterTanks">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.brandModelHotWaterTanks">Brand Model Hot Water Tanks</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="brandModelHeatPumpAirConditioningUnits">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.brandModelHeatPumpAirConditioningUnits"
+                  >Brand Model Heat Pump Air Conditioning Units</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="typeLighting">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.typeLighting">Type Lighting</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="quantityEachModelAndDLCProductID">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.quantityEachModelAndDLCProductID">Quantity Each Model And DLC Product ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="checksProvideTechnicalDataSheets">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.checksProvideTechnicalDataSheets">Checks Provide Technical Data Sheets</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="brandModelPlumbingFixtures">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.brandModelPlumbingFixtures">Brand Model Plumbing Fixtures</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="otherRelevantDevicesCertification">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.otherRelevantDevicesCertification">Other Relevant Devices Certification</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="heatRecoveryGrayWaterSolarOther">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.heatRecoveryGrayWaterSolarOther">Heat Recovery Gray Water Solar Other</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="entreprise.id">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.entreprise">Entreprise</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="project.id">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.service.project">Project</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (service of services; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/service', service.id, 'view']">{{ service.id }}</a>
+              </td>
+              <td>{{ service.nameService }}</td>
+              <td>{{ service.companyName }}</td>
+              <td>{{ service.phone }}</td>
+              <td>{{ service.email }}</td>
+              <td>{{ service.plansAllFloorsVentilationPlans }}</td>
+              <td>{{ service.energySimulationReport }}</td>
+              <td>{{ service.windowsTechnicalSheetAndUFactor }}</td>
+              <td>{{ service.completeWallSection }}</td>
+              <td>{{ service.brandModelVentilationDevices }}</td>
+              <td>{{ service.brandModelVeaters }}</td>
+              <td>{{ service.brandModelHotWaterTanks }}</td>
+              <td>{{ service.brandModelHeatPumpAirConditioningUnits }}</td>
+              <td>{{ service.typeLighting }}</td>
+              <td>{{ service.quantityEachModelAndDLCProductID }}</td>
+              <td>{{ service.checksProvideTechnicalDataSheets }}</td>
+              <td>{{ service.brandModelPlumbingFixtures }}</td>
+              <td>{{ service.otherRelevantDevicesCertification }}</td>
+              <td>{{ service.heatRecoveryGrayWaterSolarOther }}</td>
+              <td>
+                @if (service.entreprise) {
+                  <div>
+                    <a [routerLink]="['/entreprise', service.entreprise.id, 'view']">{{ service.entreprise.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @for (project of service.projects; track $index; let last = $last) {
+                  <span>
+                    <a class="form-control-static" [routerLink]="['/project', project.id, 'view']">{{ project.id }}</a
+                    >{{ last ? '' : ', ' }}
+                  </span>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/service', service.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/service', service.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(service)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

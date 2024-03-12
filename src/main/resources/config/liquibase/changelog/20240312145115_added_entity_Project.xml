@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Project.
+    -->
+    <changeSet id="20240312145115-1" author="jhipster">
+        <createTable tableName="project">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name_building" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="full_address_building" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="number_housing_units" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="electricity_supplier" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hydro_quebec_contract_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hydro_quebec_meter_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="if_several_meters" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="specify_mete_intended" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="hydro_quebec_account_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="file_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="type_buillding" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="nature_project" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="start_date_work" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="end_date_work" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="hydro_quebec_rate_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="project" columnName="start_date_work" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="project" columnName="end_date_work" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20240312145115-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/project.csv"
+                  separator=";"
+                  tableName="project"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="name_building" type="string"/>
+            <column name="full_address_building" type="string"/>
+            <column name="number_housing_units" type="string"/>
+            <column name="electricity_supplier" type="string"/>
+            <column name="hydro_quebec_contract_number" type="string"/>
+            <column name="hydro_quebec_meter_number" type="string"/>
+            <column name="if_several_meters" type="boolean"/>
+            <column name="specify_mete_intended" type="string"/>
+            <column name="hydro_quebec_account_number" type="string"/>
+            <column name="file_number" type="string"/>
+            <column name="type_buillding" type="string"/>
+            <column name="nature_project" type="string"/>
+            <column name="start_date_work" type="date"/>
+            <column name="end_date_work" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

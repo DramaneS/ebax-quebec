@@ -1,0 +1,39 @@
+{
+  "ebaxquebecApp": {
+    "project": {
+      "home": {
+        "title": "Projects",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Project",
+        "createOrEditLabel": "Créer ou éditer un Project",
+        "notFound": "Aucun Project trouvé"
+      },
+      "created": "Un nouveau Project a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Project avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Project avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Project {{ id }} ?"
+      },
+      "detail": {
+        "title": "Project"
+      },
+      "id": "ID",
+      "nameBuilding": "Name Building",
+      "fullAddressBuilding": "Full Address Building",
+      "numberHousingUnits": "Number Housing Units",
+      "electricitySupplier": "Electricity Supplier",
+      "hydroQuebecContractNumber": "Hydro Quebec Contract Number",
+      "hydroQuebecMeterNumber": "Hydro Quebec Meter Number",
+      "ifSeveralMeters": "If Several Meters",
+      "specifyMeteIntended": "Specify Mete Intended",
+      "hydroQuebecAccountNumber": "Hydro Quebec Account Number",
+      "fileNumber": "File Number",
+      "typeBuillding": "Type Buillding",
+      "natureProject": "Nature Project",
+      "startDateWork": "Start Date Work",
+      "endDateWork": "End Date Work",
+      "hydroQuebecRate": "Hydro Quebec Rate",
+      "service": "Service"
+    }
+  }
+}

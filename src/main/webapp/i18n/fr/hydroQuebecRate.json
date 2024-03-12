@@ -1,0 +1,24 @@
+{
+  "ebaxquebecApp": {
+    "hydroQuebecRate": {
+      "home": {
+        "title": "HydroQuebecRates",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Hydro Quebec Rate",
+        "createOrEditLabel": "Créer ou éditer un Hydro Quebec Rate",
+        "notFound": "Aucun Hydro Quebec Rate trouvé"
+      },
+      "created": "Un nouveau Hydro Quebec Rate a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Hydro Quebec Rate avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Hydro Quebec Rate avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Hydro Quebec Rate {{ id }} ?"
+      },
+      "detail": {
+        "title": "Hydro Quebec Rate"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}
