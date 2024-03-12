@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Service.
+    -->
+    <changeSet id="20240312144715-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="entreprise_id"
+                                 baseTableName="service"
+                                 constraintName="fk_service__entreprise_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entreprise"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="rel_service__project"
+                                 constraintName="fk_rel_service__project__service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="rel_service__project"
+                                 constraintName="fk_rel_service__project__project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"
+                                 />
+    </changeSet>
+</databaseChangeLog>

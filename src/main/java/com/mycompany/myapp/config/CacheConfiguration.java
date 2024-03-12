@@ -48,6 +48,14 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Service.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Service.class.getName() + ".projects");
+            createCache(cm, com.mycompany.myapp.domain.Custumer.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Invoice.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Entreprise.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Project.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Project.class.getName() + ".services");
+            createCache(cm, com.mycompany.myapp.domain.HydroQuebecRate.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

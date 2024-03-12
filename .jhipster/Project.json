@@ -1,0 +1,82 @@
+{
+  "annotations": {
+    "changelogDate": "20240312145115"
+  },
+  "applications": "*",
+  "entityTableName": "project",
+  "fields": [
+    {
+      "fieldName": "nameBuilding",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fullAddressBuilding",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numberHousingUnits",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "electricitySupplier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hydroQuebecContractNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hydroQuebecMeterNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifSeveralMeters",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "specifyMeteIntended",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hydroQuebecAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fileNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "typeBuillding",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "natureProject",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "startDateWork",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDateWork",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Project",
+  "relationships": [
+    {
+      "otherEntityName": "hydroQuebecRate",
+      "relationshipName": "hydroQuebecRate",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "service",
+      "otherEntityRelationshipName": "project",
+      "relationshipName": "service",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

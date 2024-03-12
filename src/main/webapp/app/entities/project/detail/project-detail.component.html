@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (project) {
+      <div>
+        <h2 data-cy="projectDetailsHeading"><span jhiTranslate="ebaxquebecApp.project.detail.title">Project</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ project.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.nameBuilding">Name Building</span></dt>
+          <dd>
+            <span>{{ project.nameBuilding }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.fullAddressBuilding">Full Address Building</span></dt>
+          <dd>
+            <span>{{ project.fullAddressBuilding }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.numberHousingUnits">Number Housing Units</span></dt>
+          <dd>
+            <span>{{ project.numberHousingUnits }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.electricitySupplier">Electricity Supplier</span></dt>
+          <dd>
+            <span>{{ project.electricitySupplier }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.hydroQuebecContractNumber">Hydro Quebec Contract Number</span></dt>
+          <dd>
+            <span>{{ project.hydroQuebecContractNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.hydroQuebecMeterNumber">Hydro Quebec Meter Number</span></dt>
+          <dd>
+            <span>{{ project.hydroQuebecMeterNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.ifSeveralMeters">If Several Meters</span></dt>
+          <dd>
+            <span>{{ project.ifSeveralMeters }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.specifyMeteIntended">Specify Mete Intended</span></dt>
+          <dd>
+            <span>{{ project.specifyMeteIntended }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.hydroQuebecAccountNumber">Hydro Quebec Account Number</span></dt>
+          <dd>
+            <span>{{ project.hydroQuebecAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.fileNumber">File Number</span></dt>
+          <dd>
+            <span>{{ project.fileNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.typeBuillding">Type Buillding</span></dt>
+          <dd>
+            <span>{{ project.typeBuillding }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.natureProject">Nature Project</span></dt>
+          <dd>
+            <span>{{ project.natureProject }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.startDateWork">Start Date Work</span></dt>
+          <dd>
+            <span>{{ project.startDateWork | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.endDateWork">End Date Work</span></dt>
+          <dd>
+            <span>{{ project.endDateWork | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.project.hydroQuebecRate">Hydro Quebec Rate</span></dt>
+          <dd>
+            @if (project.hydroQuebecRate) {
+              <div>
+                <a [routerLink]="['/hydro-quebec-rate', project.hydroQuebecRate.id, 'view']">{{ project.hydroQuebecRate.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/project', project.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

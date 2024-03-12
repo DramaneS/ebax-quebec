@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (entreprise) {
+      <div>
+        <h2 data-cy="entrepriseDetailsHeading"><span jhiTranslate="ebaxquebecApp.entreprise.detail.title">Entreprise</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ entreprise.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.companyName">Company Name</span></dt>
+          <dd>
+            <span>{{ entreprise.companyName }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.companyNeqNumber">Company Neq Number</span></dt>
+          <dd>
+            <span>{{ entreprise.companyNeqNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.isThistaxExemptOrganization">Is Thistax Exempt Organization</span></dt>
+          <dd>
+            <span>{{ entreprise.isThistaxExemptOrganization }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.resourcePerson">Resource Person</span></dt>
+          <dd>
+            <span>{{ entreprise.resourcePerson }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.address">Address</span></dt>
+          <dd>
+            <span>{{ entreprise.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.email">Email</span></dt>
+          <dd>
+            <span>{{ entreprise.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.entreprise.phone">Phone</span></dt>
+          <dd>
+            <span>{{ entreprise.phone }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/entreprise', entreprise.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

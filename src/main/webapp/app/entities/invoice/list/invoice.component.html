@@ -1,0 +1,123 @@
+<div>
+  <h2 id="page-heading" data-cy="InvoiceHeading">
+    <span jhiTranslate="ebaxquebecApp.invoice.home.title">Invoices</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.invoice.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-invoice"
+        [routerLink]="['/invoice/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.invoice.home.createLabel">Créer un nouveau Invoice</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (invoices?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="ebaxquebecApp.invoice.home.notFound">Aucun Invoice trouvé</span>
+    </div>
+  }
+
+  @if (invoices && invoices.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nameCustumer">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.invoice.nameCustumer">Name Custumer</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="adress">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.invoice.adress">Adress</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phone">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.invoice.phone">Phone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.invoice.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="service.id">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.invoice.service">Service</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (invoice of invoices; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/invoice', invoice.id, 'view']">{{ invoice.id }}</a>
+              </td>
+              <td>{{ invoice.nameCustumer }}</td>
+              <td>{{ invoice.adress }}</td>
+              <td>{{ invoice.phone }}</td>
+              <td>{{ invoice.email }}</td>
+              <td>
+                @if (invoice.service) {
+                  <div>
+                    <a [routerLink]="['/service', invoice.service.id, 'view']">{{ invoice.service.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/invoice', invoice.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/invoice', invoice.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(invoice)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

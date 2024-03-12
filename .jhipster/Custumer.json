@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240312144815"
+  },
+  "applications": "*",
+  "entityTableName": "custumer",
+  "fields": [
+    {
+      "fieldName": "nameCustumer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Custumer",
+  "relationships": [
+    {
+      "otherEntityName": "service",
+      "relationshipName": "service",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}

@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="EntrepriseHeading">
+    <span jhiTranslate="ebaxquebecApp.entreprise.home.title">Entreprises</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.entreprise.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-entreprise"
+        [routerLink]="['/entreprise/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ebaxquebecApp.entreprise.home.createLabel">Créer un nouveau Entreprise</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (entreprises?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="ebaxquebecApp.entreprise.home.notFound">Aucun Entreprise trouvé</span>
+    </div>
+  }
+
+  @if (entreprises && entreprises.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="companyName">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.companyName">Company Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="companyNeqNumber">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.companyNeqNumber">Company Neq Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isThistaxExemptOrganization">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.isThistaxExemptOrganization">Is Thistax Exempt Organization</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourcePerson">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.resourcePerson">Resource Person</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phone">
+              <div class="d-flex">
+                <span jhiTranslate="ebaxquebecApp.entreprise.phone">Phone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (entreprise of entreprises; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/entreprise', entreprise.id, 'view']">{{ entreprise.id }}</a>
+              </td>
+              <td>{{ entreprise.companyName }}</td>
+              <td>{{ entreprise.companyNeqNumber }}</td>
+              <td>{{ entreprise.isThistaxExemptOrganization }}</td>
+              <td>{{ entreprise.resourcePerson }}</td>
+              <td>{{ entreprise.address }}</td>
+              <td>{{ entreprise.email }}</td>
+              <td>{{ entreprise.phone }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/entreprise', entreprise.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+                  </a>
+
+                  <a [routerLink]="['/entreprise', entreprise.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(entreprise)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

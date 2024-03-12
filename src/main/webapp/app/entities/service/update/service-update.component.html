@@ -1,0 +1,322 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-service-heading" data-cy="ServiceCreateUpdateHeading" jhiTranslate="ebaxquebecApp.service.home.createOrEditLabel">
+        Créer ou éditer un Service
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.nameService" for="field_nameService">Name Service</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nameService"
+            id="field_nameService"
+            data-cy="nameService"
+            formControlName="nameService"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.companyName" for="field_companyName">Company Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="companyName"
+            id="field_companyName"
+            data-cy="companyName"
+            formControlName="companyName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.plansAllFloorsVentilationPlans"
+            for="field_plansAllFloorsVentilationPlans"
+            >Plans All Floors Ventilation Plans</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="plansAllFloorsVentilationPlans"
+            id="field_plansAllFloorsVentilationPlans"
+            data-cy="plansAllFloorsVentilationPlans"
+            formControlName="plansAllFloorsVentilationPlans"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.energySimulationReport" for="field_energySimulationReport"
+            >Energy Simulation Report</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="energySimulationReport"
+            id="field_energySimulationReport"
+            data-cy="energySimulationReport"
+            formControlName="energySimulationReport"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.windowsTechnicalSheetAndUFactor"
+            for="field_windowsTechnicalSheetAndUFactor"
+            >Windows Technical Sheet And U Factor</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="windowsTechnicalSheetAndUFactor"
+            id="field_windowsTechnicalSheetAndUFactor"
+            data-cy="windowsTechnicalSheetAndUFactor"
+            formControlName="windowsTechnicalSheetAndUFactor"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.completeWallSection" for="field_completeWallSection"
+            >Complete Wall Section</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="completeWallSection"
+            id="field_completeWallSection"
+            data-cy="completeWallSection"
+            formControlName="completeWallSection"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.brandModelVentilationDevices"
+            for="field_brandModelVentilationDevices"
+            >Brand Model Ventilation Devices</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="brandModelVentilationDevices"
+            id="field_brandModelVentilationDevices"
+            data-cy="brandModelVentilationDevices"
+            formControlName="brandModelVentilationDevices"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.brandModelVeaters" for="field_brandModelVeaters"
+            >Brand Model Veaters</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="brandModelVeaters"
+            id="field_brandModelVeaters"
+            data-cy="brandModelVeaters"
+            formControlName="brandModelVeaters"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.brandModelHotWaterTanks" for="field_brandModelHotWaterTanks"
+            >Brand Model Hot Water Tanks</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="brandModelHotWaterTanks"
+            id="field_brandModelHotWaterTanks"
+            data-cy="brandModelHotWaterTanks"
+            formControlName="brandModelHotWaterTanks"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.brandModelHeatPumpAirConditioningUnits"
+            for="field_brandModelHeatPumpAirConditioningUnits"
+            >Brand Model Heat Pump Air Conditioning Units</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="brandModelHeatPumpAirConditioningUnits"
+            id="field_brandModelHeatPumpAirConditioningUnits"
+            data-cy="brandModelHeatPumpAirConditioningUnits"
+            formControlName="brandModelHeatPumpAirConditioningUnits"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.typeLighting" for="field_typeLighting">Type Lighting</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="typeLighting"
+            id="field_typeLighting"
+            data-cy="typeLighting"
+            formControlName="typeLighting"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.quantityEachModelAndDLCProductID"
+            for="field_quantityEachModelAndDLCProductID"
+            >Quantity Each Model And DLC Product ID</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="quantityEachModelAndDLCProductID"
+            id="field_quantityEachModelAndDLCProductID"
+            data-cy="quantityEachModelAndDLCProductID"
+            formControlName="quantityEachModelAndDLCProductID"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.checksProvideTechnicalDataSheets"
+            for="field_checksProvideTechnicalDataSheets"
+            >Checks Provide Technical Data Sheets</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="checksProvideTechnicalDataSheets"
+            id="field_checksProvideTechnicalDataSheets"
+            data-cy="checksProvideTechnicalDataSheets"
+            formControlName="checksProvideTechnicalDataSheets"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.brandModelPlumbingFixtures" for="field_brandModelPlumbingFixtures"
+            >Brand Model Plumbing Fixtures</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="brandModelPlumbingFixtures"
+            id="field_brandModelPlumbingFixtures"
+            data-cy="brandModelPlumbingFixtures"
+            formControlName="brandModelPlumbingFixtures"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.otherRelevantDevicesCertification"
+            for="field_otherRelevantDevicesCertification"
+            >Other Relevant Devices Certification</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="otherRelevantDevicesCertification"
+            id="field_otherRelevantDevicesCertification"
+            data-cy="otherRelevantDevicesCertification"
+            formControlName="otherRelevantDevicesCertification"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="ebaxquebecApp.service.heatRecoveryGrayWaterSolarOther"
+            for="field_heatRecoveryGrayWaterSolarOther"
+            >Heat Recovery Gray Water Solar Other</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="heatRecoveryGrayWaterSolarOther"
+            id="field_heatRecoveryGrayWaterSolarOther"
+            data-cy="heatRecoveryGrayWaterSolarOther"
+            formControlName="heatRecoveryGrayWaterSolarOther"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="ebaxquebecApp.service.entreprise" for="field_entreprise">Entreprise</label>
+          <select
+            class="form-control"
+            id="field_entreprise"
+            data-cy="entreprise"
+            name="entreprise"
+            formControlName="entreprise"
+            [compareWith]="compareEntreprise"
+          >
+            <option [ngValue]="null"></option>
+            @for (entrepriseOption of entreprisesSharedCollection; track $index) {
+              <option [ngValue]="entrepriseOption">{{ entrepriseOption.id }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label jhiTranslate="ebaxquebecApp.service.project" for="field_projects">Project</label>
+          <select
+            class="form-control"
+            id="field_projects"
+            data-cy="project"
+            multiple
+            name="projects"
+            formControlName="projects"
+            [compareWith]="compareProject"
+          >
+            @for (projectOption of projectsSharedCollection; track $index) {
+              <option [ngValue]="projectOption">{{ projectOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Annuler</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Sauvegarder</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (invoice) {
+      <div>
+        <h2 data-cy="invoiceDetailsHeading"><span jhiTranslate="ebaxquebecApp.invoice.detail.title">Invoice</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ invoice.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.invoice.nameCustumer">Name Custumer</span></dt>
+          <dd>
+            <span>{{ invoice.nameCustumer }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.invoice.adress">Adress</span></dt>
+          <dd>
+            <span>{{ invoice.adress }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.invoice.phone">Phone</span></dt>
+          <dd>
+            <span>{{ invoice.phone }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.invoice.email">Email</span></dt>
+          <dd>
+            <span>{{ invoice.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="ebaxquebecApp.invoice.service">Service</span></dt>
+          <dd>
+            @if (invoice.service) {
+              <div>
+                <a [routerLink]="['/service', invoice.service.id, 'view']">{{ invoice.service.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/invoice', invoice.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
