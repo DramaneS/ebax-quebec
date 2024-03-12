@@ -1,0 +1,83 @@
+
+entity Service {
+	nameService String
+    companyName String
+    phone String
+    email String
+	plansAllFloorsVentilationPlans Boolean
+	energySimulationReport Boolean
+	windowsTechnicalSheetAndUFactor Boolean
+	completeWallSection Boolean
+	brandModelVentilationDevices Boolean
+	brandModelVeaters Boolean
+	brandModelHotWaterTanks Boolean
+    brandModelHeatPumpAirConditioningUnits Boolean
+    typeLighting Boolean
+    quantityEachModelAndDLCProductID Boolean
+	checksProvideTechnicalDataSheets Boolean
+	brandModelPlumbingFixtures Boolean
+    otherRelevantDevicesCertification Boolean
+	heatRecoveryGrayWaterSolarOther Boolean
+    
+}
+
+entity Custumer {
+	nameCustumer String
+    adress String
+    phone String
+    email String
+}
+
+entity Invoice {
+	nameCustumer String
+    adress String
+    phone String
+    email String
+}
+
+entity Entreprise {
+	companyName String
+	companyNeqNumber String
+	isThistaxExemptOrganization Boolean
+	resourcePerson String
+	address String
+    email String
+    phone String
+}
+
+entity Project {
+	nameBuilding String
+	fullAddressBuilding String
+	numberHousingUnits String
+	electricitySupplier String
+	hydroQuebecContractNumber String
+	hydroQuebecMeterNumber String
+	ifSeveralMeters Boolean
+    specifyMeteIntended String
+	hydroQuebecAccountNumber String
+    fileNumber String
+  	typeBuillding String
+    natureProject String
+	startDateWork Instant
+    endDateWork Instant
+}
+
+entity HydroQuebecRate {
+	name String
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship ManyToOne {
+	Custumer {Service} to Service
+    Service {Entreprise} to Entreprise
+    Project {HydroQuebecRate} to HydroQuebecRate
+}
+
+relationship OneToOne {
+	Invoice{Service} to Service{Invoice}
+}
+
+relationship ManyToMany {
+	Service{Project} to Project{Service}
+}
